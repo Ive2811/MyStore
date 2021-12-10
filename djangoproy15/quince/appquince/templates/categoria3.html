@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Django PDF</title>
+  <style>
+    table { -pdf-keep-with-next: true; }
+    p { margin: 0; -pdf-keep-with-next: true; }
+    p.separator { -pdf-keep-with-next: false; font-size: 6pt; }
+</style>
+</head>
+<body>
+
+<style>
+img { zoom: 80%; }
+</style>
+
+
+    <h1 style="text-align: center;" >Listado de productos de urgencia.</h1>
+    <br>
+
+<td>
+
+<table style="border-collapse: collapse; width: 100%;" border="1">
+    <thead class="thead-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Codigo</th>
+            <th>Categoria</th>
+            <th>Estado</th>
+            <td>Imagen</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in producto %}
+        <tr>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.precio }}</td>
+            <td>{{ producto.codigo }}</td>
+            <td>{{ producto.categoria }}</td>
+            <td>{{ producto.estado }}</td>
+           
+            
+            <td>
+                <img src="../media/{{producto.imagen}}" height="125px">
+            </td>
+            {%endfor%}
+        </tr>
+    </tbody>
+    <!-- <a type="button" class="btn btn-primary" href="registrar_productos.html">Nuevo Producto</a> -->
+</table>
+
+    </td>   
+</body>
+</html>

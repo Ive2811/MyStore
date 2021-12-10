@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="padding-left:350px;">
+    <form method="POST" enctype="multipart/form-data">
+ 
+    <!-- Security token -->
+    {% csrf_token %}
+ 
+    <!-- Using the formset -->
+    {{ form.as_p }}
+     
+    <input type="submit" class="btn btn-primary" value="Guardar"><br><br><br><br><br><br>
+</form>
+</div>
+
+ {% endblock %}

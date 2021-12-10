@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+ <section class="bg-info p-2 text-dark bg-opacity-50" id="features">
+ <div class="container px-5 my-5">
+<div class="row gx-5">
+
+    <div class="alert alert-info text-success text-center" role="alert">
+        <h2>Registros de productos de urgencia</h2>
+      </div>
+
+<table class="table table-bordered table-info">
+<thead>
+<tr>
+<td>Nombre del producto</td>
+<td>Precio</td>
+<td>Código</td>
+<td>Categoría</td>
+<td>Estado</td>
+<td>Imagen</td>
+</tr>
+
+</thead>
+<tbody>
+{% if productos%}
+{%for productos in productos %}
+<tr>
+<td>{{productos.nombre}}</td>
+<td>{{productos.precio}}</td>
+<td>{{productos.codigo}}</td>
+<td>{{productos.categoria}}</td>
+<td>{{productos.estado}}</td>
+<td>
+  {% if productos.imagen %}
+  <img src="{{productos.imagen.url}}" height="125px">
+  {%endif%}
+</td>
+</tr>
+{%endfor%}
+{%else%}
+<div class="alert alert-warning text-danger text-center" role="alert">
+  <h2>No existen registros</h2>
+  </div>
+{% endif %}
+</thead>
+<tbody>
+</table>
+ </div>
+</div>
+  </section>
+</div>
+</div>
+</div>
+</div>
+ {% endblock %}
